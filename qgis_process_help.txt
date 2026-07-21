@@ -1,0 +1,117 @@
+Shortest path (point to point) (native:shortestpathpointtopoint)
+
+----------------
+Description
+----------------
+Computes optimal (shortest or fastest) route between given start and end points.
+This algorithm computes optimal (shortest or fastest) route between given start and end points.
+
+----------------
+Notes
+----------------
+
+ - This algorithm uses ellipsoid based measurements and respects the current ellipsoid settings.
+
+----------------
+Arguments
+----------------
+
+INPUT: Vector layer representing network
+	Argument type:	source
+	Acceptable values:
+		- Path to a vector layer
+STRATEGY: Path type to calculate
+	Default value:	0
+	Argument type:	enum
+	Available values:
+		- 0: Shortest
+		- 1: Fastest
+	Acceptable values:
+		- Number of selected option, e.g. '1'
+		- Comma separated list of options, e.g. '1,3'
+DIRECTION_FIELD: Direction field (optional)
+	The attribute field specifying the direction of traffic flow for each segment.
+	Argument type:	field
+	Acceptable values:
+		- The name of an existing field
+		- ; delimited list of existing field names
+VALUE_FORWARD: Value for forward direction (optional)
+	The string value in the direction field that indicates one-way traffic in the digitized direction.
+	Argument type:	string
+	Acceptable values:
+		- String value
+		- field:FIELD_NAME to use a data defined value taken from the FIELD_NAME field
+		- expression:SOME EXPRESSION to use a data defined value calculated using a custom QGIS expression
+VALUE_BACKWARD: Value for backward direction (optional)
+	The string value in the direction field that indicates one-way traffic opposite to the digitized direction.
+	Argument type:	string
+	Acceptable values:
+		- String value
+		- field:FIELD_NAME to use a data defined value taken from the FIELD_NAME field
+		- expression:SOME EXPRESSION to use a data defined value calculated using a custom QGIS expression
+VALUE_BOTH: Value for both directions (optional)
+	The string value in the direction field that indicates two-way traffic.
+	Argument type:	string
+	Acceptable values:
+		- String value
+		- field:FIELD_NAME to use a data defined value taken from the FIELD_NAME field
+		- expression:SOME EXPRESSION to use a data defined value calculated using a custom QGIS expression
+DEFAULT_DIRECTION: Default direction
+	Default value:	2
+	Argument type:	enum
+	Available values:
+		- 0: Forward direction
+		- 1: Backward direction
+		- 2: Both directions
+	Acceptable values:
+		- Number of selected option, e.g. '1'
+		- Comma separated list of options, e.g. '1,3'
+SPEED_FIELD: Speed field (optional)
+	Argument type:	field
+	Acceptable values:
+		- The name of an existing field
+		- ; delimited list of existing field names
+DEFAULT_SPEED: Default speed (km/h)
+	Default value:	50
+	Argument type:	number
+	Acceptable values:
+		- A numeric value
+		- field:FIELD_NAME to use a data defined value taken from the FIELD_NAME field
+		- expression:SOME EXPRESSION to use a data defined value calculated using a custom QGIS expression
+TOLERANCE: Topology tolerance
+	Default value:	0
+	Argument type:	distance
+	Acceptable values:
+		- A numeric value
+		- field:FIELD_NAME to use a data defined value taken from the FIELD_NAME field
+		- expression:SOME EXPRESSION to use a data defined value calculated using a custom QGIS expression
+START_POINT: Start point
+	Argument type:	point
+	Acceptable values:
+		- Point coordinate as an 'x,y' string, e.g. '1.5,10.1'
+END_POINT: End point
+	Argument type:	point
+	Acceptable values:
+		- Point coordinate as an 'x,y' string, e.g. '1.5,10.1'
+OUTPUT: Shortest path
+	Argument type:	sink
+	Acceptable values:
+		- Path for new vector layer
+POINT_TOLERANCE: Maximum point distance from network (optional)
+	Specifies an optional limit on the distance from the start and end points to the network layer. If either point is further from the network than this distance an error will be raised.
+	Argument type:	distance
+	Acceptable values:
+		- A numeric value
+		- field:FIELD_NAME to use a data defined value taken from the FIELD_NAME field
+		- expression:SOME EXPRESSION to use a data defined value calculated using a custom QGIS expression
+
+----------------
+Outputs
+----------------
+
+OUTPUT: <outputVector>
+	Shortest path
+TRAVEL_COST: <outputNumber>
+	Travel cost
+
+
