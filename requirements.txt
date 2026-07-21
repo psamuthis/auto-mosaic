@@ -1,0 +1,7 @@
+geopandas
+shapely
+ipykernel
+grax
+matplotlib
+numpy
+scipy
